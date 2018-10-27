@@ -1,3 +1,10 @@
+/*CREADO POR:9tm7m1
+	 FECHA: 04/10/2018
+	 FUNCION:estiloprincipal
+*/
+/*HEADER*/
+
+
 .container{
     width: 90%;
     margin: 0 auto;
@@ -14,10 +21,10 @@ header::after{
 }
 .logo{
     float: left;
-    width: 200px;
+    width: 100px;
+    height: 100px;
 }
 header button{
-    width: 7%;
     background-color: #444;
     color: white;
     padding: 4px 5px;
@@ -25,6 +32,23 @@ header button{
     border: none;
     border-radius: 4px;
     cursor: pointer;
+
+}
+#encabezado{
+    padding-top: 24px;
+
+}
+.enlaceHead{
+    float: right;
+    margin-top: 29px;
+    margin-left: 3px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    margin-right: 6px;
+}
+.enlaceIconUser{
+    font-size: 24px!important;
 
 }
 nav ul{
@@ -69,6 +93,8 @@ header button{
 
 
 
+
+
 /*BODY*/
 body{
     font-family: 'K2D', sans-serif;
@@ -86,7 +112,6 @@ body{
 .img{
     width: 540px;
     height: 292px;
-    margin-left: 35%;
     border-radius: 25px;
     
 }
@@ -96,11 +121,18 @@ body{
     margin-top: 3%;
     font-size: 18px;
 }
-.title{
+.titulo{
     width: 50%;
     margin:auto;
     text-align: center;
     margin-bottom: 3%;
+}
+.divImg{
+    text-align: center;
+}
+.enlace{
+    text-decoration:none;
+    color: red;
 }
 
 
@@ -135,6 +167,13 @@ label{
     margin-top: 8px;
     margin-left: 4px;
     font-weight: 550;
+}
+.textoForm{
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    color: green;
+    margin-bottom: 2%;
 }
 
 
@@ -178,13 +217,14 @@ input[type=email]{
 
 }
 input:focus { 
-    border-color: #5472d3
+    border-color: #5472d3;
 }
 input{
     font-family: 'K2D', sans-serif;
+    font-size: 14px;
 }
 
-/*BOTONES*/
+/*BOTONES Y ICONOS*/
 
 .buttonGuardar {
     width: 4%;
@@ -225,7 +265,6 @@ input{
     background-color: red;
     color: white;
     padding: 6px 8px;
-    margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -238,7 +277,6 @@ input{
     background-color: #4CAF50;
     color: white;
     padding: 6px 8px;
-    margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -257,9 +295,16 @@ input{
     cursor: pointer;
     margin-top: 3%;
 }
+.tdShowIcons{
+    color: #4CAF50;
+}
+.material-icons{
+    font-size: 20px!important;
+}
 
 
 /* asterisco*/
+
 .req{
     color:maroon;
     font-size: 112%;
@@ -289,6 +334,7 @@ input{
 
 
 
+
 .thDeleteOrTupla{
     padding: 20px;
 }
@@ -306,10 +352,7 @@ input{
     padding-bottom: 4%;
 }
 
-/*ICONOS*/
-.material-icons{
-    font-size: 20px!important;
-}
+
 
 /*footer*/
 
