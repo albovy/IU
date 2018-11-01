@@ -5,30 +5,55 @@
 
 
 <!DOCTYPE html>
-<html  lang="es">
+<html lang="es">
+
 <head>
 	<title>TailandAgency</title>
 	<meta charset="UTF-8">
+	<!-- bootsrap css 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
+
 	<!--css-->
 	<link rel="stylesheet" href="css/style.css">
 	<!--iconos y fontfamily-->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
 	<!--calendar-->
 	<link rel="stylesheet" type="text/css" href="calendario/tcal.css" />
-	<script src="calendario/tcal.js"></script> 
-	<script src="js/validaciones.js"></script> 
+	<script src="calendario/tcal.js"></script>
+	<script src="js/validaciones.js"></script>
+
+
+
+	<!--bootstrap js-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	 crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	 crossorigin="anonymous"></script>
+
 </head>
+
 <body>
 	<header>
-		<div class="container">
+		<div class="miContainer">
 			<img src="logo.png" alt="logo" class="logo">
 			<h1 id="encabezado">TAILANDAGENCY</h1>
 			<button><i class="material-icons">power_settings_new</i></button>
 			<a href="" class="enlaceHead"><i class="material-icons enlaceIconUser">person</i>Albovy</a>
-			<button><i class="material-icons">language</i>Idioma</button>
+			<div class="dropdown">
+				<button class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="idioma">
+					<i class="material-icons">language</i>Idioma
+				</button>
+				<div class="dropdown-menu" aria-labelledby="idioma">
+					<a class="dropdown-item">Español</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item">Inglés</a>
+				</div>
+			</div>
+
 
 			<nav>
 				<ul class="menu">
@@ -50,12 +75,20 @@
 		<div class="divImg">
 			<img class="img" alt="img" src="img.jpg">
 		</div>
-		<p class="text">Cuando llegas a un <a class="enlace" href="http://www.turismotailandes.com/" target="blank">país</a> por primera vez, te costará entender las costumbres del país e incluso saber si estás ofendiendo o no. Especialmente si este país está al otro lado del mundo. A veces habrá costumbres que no entiendas pero recuerda el dicho, “las normas de un país están hechas para aquellos que lo habitan y no para el que lo visita”.</p>
+		<p class="text">Cuando llegas a un <a class="enlace" href="http://www.turismotailandes.com/" target="blank">país</a>
+			por primera vez, te costará entender las costumbres del país e incluso saber si estás ofendiendo o no. Especialmente
+			si este país está al otro lado del mundo. A veces habrá costumbres que no entiendas pero recuerda el dicho, “las
+			normas de un país están hechas para aquellos que lo habitan y no para el que lo visita”.</p>
 
-		<p class="text">El refrán popular “donde fueras haz lo que vieras”, suele funcionar bastante bien a la hora de adaptarse. Pero a pesar de ello, hay normas sociales que se escapan al conocimiento.</p>
+		<p class="text">El refrán popular “donde fueras haz lo que vieras”, suele funcionar bastante bien a la hora de
+			adaptarse. Pero a pesar de ello, hay normas sociales que se escapan al conocimiento.</p>
 
-		<p class="text">Es evidente que los tailandeses son especialmente tolerantes con el visitante, tanto es así que asumen e incluso excusan nuestro incumplimento de las normas.</p>
-		<p class="text">¿Sabías, por ejemplo, que Tailandia es un país que nunca fue conquistado? Sus vecinos Camboya y Laos cayeron en manos de los franceses pero los tailandeses consiguieron mantenerse independientes. Tuvieron que ceder, eso sí, parte de su territorio a Malasia y a lo que hoy se conoce como Laos y Camboya. Este hecho es parte del orgullo nacional tailandés.</p>
+		<p class="text">Es evidente que los tailandeses son especialmente tolerantes con el visitante, tanto es así que
+			asumen e incluso excusan nuestro incumplimento de las normas.</p>
+		<p class="text">¿Sabías, por ejemplo, que Tailandia es un país que nunca fue conquistado? Sus vecinos Camboya y Laos
+			cayeron en manos de los franceses pero los tailandeses consiguieron mantenerse independientes. Tuvieron que ceder,
+			eso sí, parte de su territorio a Malasia y a lo que hoy se conoce como Laos y Camboya. Este hecho es parte del
+			orgullo nacional tailandés.</p>
 
 
 	</section>
@@ -65,20 +98,29 @@
 			<h2 class="textoForm">Añadir</h2>
 			<h4>Obligatorio *</h4>
 			<div>
+				<label><span class="req">*</span>Dni:</label>
+				<input type="text" id="dniAdd" name="dni" placeholder="Tu dni.." maxlength=9 size=9 onblur="comprobarDni(this.id,this.size)">
+			</div>
+			<div>
+				<label><span class="req">*</span>Teléfono:</label>
+				<input type="text" id="telefonoAdd" name="telefono" placeholder="Tu telefono.." maxlength=25 onblur="comprobarTelf(this.id)">
+			</div>
+			<div>
 				<label><span class="req">*</span>Usuario:</label>
-				<input type="text" id="usuarioAdd" name="usuario" placeholder="Tu usuario.." maxlength=25 value="" size=25 onBlur="comprobarDni(this.id,9)">
+				<input type="text" id="usuarioAdd" name="usuario" placeholder="Tu usuario.." maxlength=25 size=25 onblur="comprobarTexto(this.id,this.size)">
 			</div>
 			<div>
 				<label><span class="req">*</span>Contraseña:</label>
-				<input type="password" id="contraseña" name="contraseña" placeholder="Tu contraseña.." maxlength="20" required>
+				<input type="password" id="contraseñaAdd" name="contraseña" placeholder="Tu contraseña.." maxlength="20" size=20
+				 onblur="comprobarTexto(this.id,this.size)">
 			</div>
 			<div>
 				<label><span class="req">*</span>Fecha de nacimiento:</label>
-				<input type="text" name="date" class="tcal" value="" placeholder="Tu fecha de nacimiento.." required readonly>
+				<input type="text" id="dateAdd" name="date" class="tcal" value="" placeholder="Tu fecha de nacimiento.." readonly">
 			</div>
 			<div>
 				<label><span class="req">*</span>Grupo de prácticas:</label>
-				<select id="grupoPractico" name="grupoPractico">
+				<select id="grupoPracticoAdd" name="grupoPractico">
 					<option value="IU1">IU1</option>
 					<option value="IU2">IU2</option>
 					<option value="IU3">IU3</option>
@@ -89,19 +131,22 @@
 			</div>
 			<div>
 				<label><span class="req">*</span>Email:</label>
-				<input type="email" id="email" name="email" placeholder="Tu email.." maxlength="50" required>
+				<input type="email" id="emailAdd" name="email" placeholder="Tu email.." value="" maxlength="50" size=50 onblur="comprobarEmail(this.id,this.size)">
 			</div>
 			<div>
 				<label><span class="req">*</span>Nombre:</label>
-				<input type="text" id="nombre" name="nombre" placeholder="Tu nombre.." maxlength="25" required>
+				<input type="text" id="nombreAdd" name="nombre" placeholder="Tu nombre.." value="" maxlength="25" size=25 onblur="comprobarAlfabetico(this.id,this.size)">
 			</div>
 			<div>
 				<label><span class="req">*</span>Apellidos:</label>
-				<input type="text" id="apellidos" name="apellidos" placeholder="Tus apellidos.." maxlength="50" required>
+				<input type="text" id="apellidosAdd" name="apellidos" placeholder="Tus apellidos.." value="" maxlength="50" size=50
+				 onblur="comprobarAlfabetico(this.id,this.size)">
+				<p id="oculto" hidden>debe ser</p>
 			</div>
 			<div>
 				<label><span class="req">*</span>Titulación:</label>
-				<input type="text" id="titulacion" name="titulacion" placeholder="Tu titulacion.." maxlength="60" required>
+				<input type="text" id="titulacionAdd" name="titulacion" placeholder="Tu titulacion.." value="" maxlength="60" size=60
+				 onblur="comprobarAlfabetico(this.id,this.size)">
 			</div>
 			<div>
 				<label><span class="req">*</span>Curso académico:</label>
@@ -112,14 +157,14 @@
 					<option value="4">4º</option>
 				</select>
 			</div>
-			<button class="buttonGuardar" type="submit"><i class="material-icons">check_circle</i></button>
+			<button class="buttonGuardar" onclick="registrar()"><i class="material-icons" o>check_circle</i></button>
 		</form>
 	</div>
 
 	<!-- FORMULARIO BUSCAR-->
 
 	<div class="formBuscar">
-		<form >
+		<form>
 			<h2 class="textoForm">Buscar</h2>
 			<div>
 				<div class='buscar'>
@@ -175,25 +220,30 @@
 	<!-- FORMULARIO EDITAR -->
 
 	<div class="formEditar">
-		<form >
+		<form>
 			<h2 class="textoForm">Editar</h2>
 			<h4>Obligatorio *</h4>
 			<div>
-				<label>Nueva Contraseña:</label>
-				<input type="password" id="contraseña" name="contraseña" placeholder="Tu contraseña.." maxlength="20">
+				<label><span class="req">*</span>Dni:</label>
+				<input type="text" id="dniEdit" name="dni" placeholder="Tu dni.." maxlength=9 size=9 onblur="comprobarDni(this.id,this.size)">
 			</div>
-
 			<div>
-				<label>Confirmar Contraseña:</label>
-				<input type="password" id="ConfirmarContraseña" name="ConfirmarContraseña" placeholder="Confirmar" maxlength="20">
+				<label><span class="req">*</span>Teléfono:</label>
+				<input type="text" id="telefonoEdit" name="telefono" placeholder="Tu telefono.." maxlength=25 onblur="comprobarTelf(this.id)">
+			</div>
+			<div>
+				<label><span class="req">*</span>Nueva Contraseña:</label>
+				<input type="password" id="contraseñaEdit" name="contraseña" placeholder="Tu contraseña.." value="" maxlength="20"
+				 size=20 onblur="comprobarTexto(this.id,this.size)">
 			</div>
 			<div>
 				<label><span class="req">*</span>Fecha de nacimiento:</label>
-				<input type="text" name="date" class="tcal" value="16/04/1997" placeholder="Tu fecha de nacimiento.." required readonly>
+				<input type="text" name="dateEdit" class="tcal" value="16/04/1997" placeholder="Tu fecha de nacimiento.." required
+				 readonly>
 			</div>
 			<div>
 				<label><span class="req">*</span>Grupo de prácticas:</label>
-				<select id="grupoPractico" name="grupoPractico" required>
+				<select id="grupoPracticoEdit" name="grupoPractico" required>
 					<option value="IU1">IU1</option>
 					<option value="IU2">IU2</option>
 					<option value="IU3">IU3</option>
@@ -204,30 +254,36 @@
 			</div>
 			<div>
 				<label><span class="req">*</span>Email:</label>
-				<input type="email" id="email" name="email" value="albovy@hotmail.com" placeholder="Tu email.." maxlength="50" required>
+				<input type="email" id="emailEdit" name="email" value="albovy@hotmail.com" placeholder="Tu email.." maxlength="50"
+				 size=50 onblur="comprobarEmail(this.id,this.size)">
 			</div>
 			<div>
 				<label><span class="req">*</span>Nombre:</label>
-				<input type="text" id="nombre" name="nombre" value="Alejandro" placeholder="Tu nombre.." maxlength="25" required>
+				<input type="text" id="nombreEdit" name="nombre" value="Alejandro" placeholder="Tu nombre.." maxlength="25" size=25
+				 onblur="comprobarAlfabetico(this.id,this.size)">
 			</div>
 			<div>
 				<label><span class="req">*</span>Apellidos:</label>
-				<input type="text" id="apellidos" name="apellidos" value="Borrajo Viéitez" placeholder="Tus apellidos.." maxlength="50" required>
+				<input type="text" id="apellidosEdit" name="apellidos" value="Borrajo Viéitez" placeholder="Tus apellidos.."
+				 maxlength="50" size=50 onblur="comprobarAlfabetico(this.id,this.size)">
 			</div>
+
 			<div>
 				<label><span class="req">*</span>Titulación:</label>
-				<input type="text" id="titulacion" name="titulacion" value="Ingeniería Informática" placeholder="Tu titulacion.." maxlength="60" required>
+				<input type="text" id="titulacionEdit" name="titulacion" value="Ingeniería Informática" placeholder="Tu titulacion.."
+				 maxlength="60" size=60 onblur="comprobarAlfabetico(this.id,this.size)">
 			</div>
 			<div>
 				<label><span class="req">*</span>Curso académico:</label>
-				<select id="cursoAcademico" name="cursoAcademico" required>
+				<select id="cursoAcademicoEdit" name="cursoAcademico" required>
 					<option value="1">1º</option>
 					<option value="2">2º</option>
 					<option value="3">3º</option>
 					<option value="4" selected>4º</option>
 				</select>
 			</div>
-			<button class="buttonGuardar" type="submit"><i class="material-icons">check_circle</i></button>
+			<button class="buttonGuardar" onclick="editar()"><i class="material-icons">check_circle</i></button>
+
 		</form>
 	</div>
 
@@ -259,130 +315,169 @@
 						<a href=""><i class="material-icons tdShowIcons">delete</i></a></td>
 
 
-					</tr>
-					<tr>
-						<td class="tdShowAll"></td>
-						<td class="tdShowAll">Albovy</td>
-						<td class="tdShowAll">albovy@hotmail.com</td>
-						<td class="tdShowAll">Alejandro</td>
-						<td class="tdShowAll">Borrajo Viéitez</td>
-						<td class="tdShowAll"><a href=""><i class="material-icons tdShowIcons">create</i></a>
-							<a href=""><i class="material-icons tdShowIcons">visibility</i></a>
-							<a href=""><i class="material-icons tdShowIcons">delete</i></a></td>
-						</tr>
+				</tr>
+				<tr>
+					<td class="tdShowAll"></td>
+					<td class="tdShowAll">Albovy</td>
+					<td class="tdShowAll">albovy@hotmail.com</td>
+					<td class="tdShowAll">Alejandro</td>
+					<td class="tdShowAll">Borrajo Viéitez</td>
+					<td class="tdShowAll"><a href=""><i class="material-icons tdShowIcons">create</i></a>
+						<a href=""><i class="material-icons tdShowIcons">visibility</i></a>
+						<a href=""><i class="material-icons tdShowIcons">delete</i></a></td>
+				</tr>
 
-					</tbody>
-				</table>
+			</tbody>
+		</table>
+	</div>
+
+
+	<!-- DELETE EXAMPLE -->
+
+	<div class="tabla">
+		<h2 class="textoForm">Delete</h2>
+		<table>
+			<thead>
+				<th></th>
+				<th class="thDeleteOrTupla">Datos a eliminar</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tdColDeleteOrTupla">Usuario:</td>
+					<td class="tdDeleteOrTupla">Albovy</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Dni:</td>
+					<td class="tdDeleteOrTupla">45142934Y</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Teléfono:</td>
+					<td class="tdDeleteOrTupla">680913308</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Fecha de nacimiento:</td>
+					<td class="tdDeleteOrTupla">16/04/1997</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Grupo de prácticas:</td>
+					<td class="tdDeleteOrTupla">IU6</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Email:</td>
+					<td class="tdDeleteOrTupla">albovy@hotmail.com</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Nombre:</td>
+					<td class="tdDeleteOrTupla">Alejandro</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Apellidos:</td>
+					<td class="tdDeleteOrTupla">Borrajo Viéitez</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Curso:</td>
+					<td class="tdDeleteOrTupla">4º</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Titulación:</td>
+					<td class="tdDeleteOrTupla">Ingeniería Informática</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+		<button class="buttonTablaDeleteCancelar"><i class="material-icons">clear</i></button>
+		<button class="buttonTablaDeleteBorrar" data-toggle="modal" data-target="#exampleModal"><i class="material-icons">delete</i></button>
+
+
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						...
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
 			</div>
+		</div>
+
+	</div>
+
+	<!--TUPLA EXAMPLE-->
+
+	<div class="tabla">
+		<h2 class="textoForm">Tupla</h2>
+		<table>
+			<thead>
+				<th> </th>
+				<th class="thDeleteOrTupla">Datos seleccionados</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tdColDeleteOrTupla">Usuario:</td>
+					<td class="tdDeleteOrTupla">Albovy</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Dni:</td>
+					<td class="tdDeleteOrTupla">45142934Y</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Teléfono:</td>
+					<td class="tdDeleteOrTupla">680913308</td>
+				</tr>
+
+				<tr>
+					<td class="tdColDeleteOrTupla">Fecha de nacimiento:</td>
+					<td class="tdDeleteOrTupla">16/04/1997</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Grupo de prácticas:</td>
+					<td class="tdDeleteOrTupla">IU6</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Email:</td>
+					<td class="tdDeleteOrTupla">albovy@hotmail.com</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Nombre:</td>
+					<td class="tdDeleteOrTupla">Alejandro</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Apellidos:</td>
+					<td class="tdDeleteOrTupla">Borrajo Viéitez</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Curso:</td>
+					<td class="tdDeleteOrTupla">4º</td>
+				</tr>
+				<tr>
+					<td class="tdColDeleteOrTupla">Titulación:</td>
+					<td class="tdDeleteOrTupla">Ingeniería Informática</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+		<button class="buttonTablaDeleteAtras"><i class="material-icons">arrow_back</i></button>
 
 
-			<!-- DELETE EXAMPLE -->
+	</div>
+	<!--FOOTER -->
+	<footer>
+		<p>Creado por: 9tm7m1</p>
+		<p>Realizado el: 04/10/2018</p>
+	</footer>
 
-			<div class="tabla">
-				<h2 class="textoForm">Delete</h2>
-				<table>
-					<thead>
-						<th></th>
-						<th class="thDeleteOrTupla">Datos a eliminar</th>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="tdColDeleteOrTupla">Usuario:</td>
-							<td class="tdDeleteOrTupla">Albovy</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Fecha de nacimiento:</td>
-							<td class="tdDeleteOrTupla">16/04/1997</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Grupo de prácticas:</td>
-							<td class="tdDeleteOrTupla">IU6</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Email:</td>
-							<td class="tdDeleteOrTupla">albovy@hotmail.com</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Nombre:</td>
-							<td class="tdDeleteOrTupla">Alejandro</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Apellidos:</td>
-							<td class="tdDeleteOrTupla">Borrajo Viéitez</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Curso:</td>
-							<td class="tdDeleteOrTupla">4º</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Titulación:</td>
-							<td class="tdDeleteOrTupla">Ingeniería Informática</td>
-						</tr>
+</body>
 
-					</tbody>
-				</table>
-
-				<button class="buttonTablaDeleteCancelar"><i class="material-icons">clear</i></button>
-				<button class="buttonTablaDeleteBorrar"><i class="material-icons">delete</i></button>
-
-
-			</div>
-
-			<!--TUPLA EXAMPLE-->
-
-			<div class="tabla">
-				<h2 class="textoForm">Tupla</h2>
-				<table>
-					<thead>
-						<th> </th>
-						<th class="thDeleteOrTupla">Datos seleccionados</th>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="tdColDeleteOrTupla">Usuario:</td>
-							<td class="tdDeleteOrTupla">Albovy</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Fecha de nacimiento:</td>
-							<td class="tdDeleteOrTupla">16/04/1997</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Grupo de prácticas:</td>
-							<td class="tdDeleteOrTupla">IU6</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Email:</td>
-							<td class="tdDeleteOrTupla">albovy@hotmail.com</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Nombre:</td>
-							<td class="tdDeleteOrTupla">Alejandro</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Apellidos:</td>
-							<td class="tdDeleteOrTupla">Borrajo Viéitez</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Curso:</td>
-							<td class="tdDeleteOrTupla">4º</td>
-						</tr>
-						<tr>
-							<td class="tdColDeleteOrTupla">Titulación:</td>
-							<td class="tdDeleteOrTupla">Ingeniería Informática</td>
-						</tr>
-
-					</tbody>
-				</table>
-
-				<button class="buttonTablaDeleteAtras"><i class="material-icons">arrow_back</i></button>
-
-
-			</div>
-			<!--FOOTER -->
-			<footer>
-				<p>Creado por: 9tm7m1</p>
-				<p>Realizado el: 04/10/2018</p>
-			</footer>
-
-		</body>
-		</html>
+</html>

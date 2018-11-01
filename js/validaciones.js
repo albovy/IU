@@ -13,6 +13,7 @@ comprobarEntero(campo, valormenor, valormayor)
 comprobarReal(campo, numero decimales, valormenor, valormayor)
 comprobarDni(campo)
 comprobarTelf(campo) // teléfono español, tanto nacional como internacional
+
 */
 
 function comprobarVacio(campo) {
@@ -30,7 +31,8 @@ function comprobarVacio(campo) {
 
 function comprobarTexto(campo, size) {
 
-	var expr = /[A-Za-zñÑ-áéíóúÁÉÍÓÚ\s\t-]/;
+	var expr = /^([^\s\t]+)+$/;
+	
 
 	if (comprobarExpresionRegular(campo, expr, size)) {
 
@@ -47,6 +49,7 @@ function comprobarExpresionRegular(campo, exprreg, size) {
 	var valor = document.getElementById(campo).value;
 
 
+
 	if (comprobarVacio(campo) && exprreg.test(valor) && valor.length <= size) {
 		return true;
 	}
@@ -56,20 +59,22 @@ function comprobarExpresionRegular(campo, exprreg, size) {
 
 function comprobarAlfabetico(campo, size) {
 
-	var expr = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
+	var expr = /^([a-zñáéíóúA-ZÁÉÍÓÚ]+[\s]*)+$/;
 
 	if (comprobarExpresionRegular(campo, expr, size)) {
 		document.getElementById(campo).style.borderColor = "green";
 		return true;
 	}
 	document.getElementById(campo).style.borderColor = "red";
+
+
 	return false;
 
 }
 
 function comprobarEntero(campo, valormenor, valormayor) {
 
-	var expr = /^[0-9]*$/;
+	var expr = /^[0-9]+$/;
 	var valor = document.getElementById(campo).value;
 
 
@@ -86,7 +91,6 @@ function comprobarReal(campo, numeros_decimales, valormenor, valormayor) {
 
 	var expr = "^[0-9]*.[0-9]{1," + numeros_decimales + "}$";
 	var expr2 = new RegExp(expr);
-	console.log
 	var valor = document.getElementById(campo).value;
 
 
@@ -144,12 +148,12 @@ function comprobarTelf(campo){
        }
 }
 
-function comprobarEmail(campo) {
+function comprobarEmail(campo, size) {
     
     var valor = document.getElementById(campo).value; //Guardamos la variable recibida con id=campo
     var expr = /^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/; //Expresión regular para los correos electronicos
     
-    if(expr.test(valor)){ //Comprobamos si el valor se corresponde con la ER
+    if(comprobarExpresionRegular(campo, expr, size)){ //Comprobamos si el valor se corresponde con la ER
         document.getElementById(campo).style.borderColor="green";
         return true;
        }else{//Si la variable no coincide con la ER
@@ -158,3 +162,22 @@ function comprobarEmail(campo) {
        }
     
 }
+function registrar(){
+
+	if(comprobarDni("dniAdd",9) && comprobarTelf("telefonoAdd") && comprobarTexto("usuarioAdd",25) && comprobarTexto("contraseñaAdd",20) && comprobarVacio("dateAdd") && comprobarEmail("emailAdd",50) &&  comprobarAlfabetico("nombreAdd",25) && comprobarAlfabetico("apellidosAdd",50) && comprobarAlfabetico("titulacionAdd",60)){
+		return true;
+	}
+	alert('Error insertando');
+	return false;
+}
+
+function editar(){
+	if(comprobarDni("dniEdit",9) && comprobarTelf("telefonoEdit") && comprobarTexto("contraseñaEdit",20) && comprobarVacio("dateEdit") && comprobarEmail("emailEdit",50) &&  comprobarAlfabetico("nombreEdit",25) && comprobarAlfabetico("apellidosEdit",50) && comprobarAlfabetico("titulacionEdit",60)){
+		return true;
+	}
+	alert('Error al editar');
+	return false;
+}
+
+
+
